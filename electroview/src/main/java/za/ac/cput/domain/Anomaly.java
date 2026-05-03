@@ -51,11 +51,12 @@ public class Anomaly {
 
     @Builder
     public Anomaly(String meterId, String readingId,
-                   double thresholdAtTime, double actualValue) {
+                   double thresholdAtTime, double actualValue, String anomalyId) {
         this.meterId = meterId;
         this.readingId = readingId;
         this.thresholdAtTime = thresholdAtTime;
         this.actualValue = actualValue;
+        this.anomalyId = anomalyId;
         this.status = AnomalyStatus.OPEN;
         this.detectedAt = LocalDateTime.now();
     }

@@ -55,7 +55,7 @@ public class Zone{
     private List<Meter> meters = new ArrayList<>();
 
     @Builder
-    public Zone(String name, String description, String location, double capacityKwh, ThresholdType thresholdType, double thresholdValue) {
+    public Zone(String name, String description, String location, double capacityKwh, ThresholdType thresholdType, double thresholdValue, ZoneStatus status, LocalDateTime createdAt, String zoneId) {
         this.name = name;
         this.description = description;
         this.location = location;

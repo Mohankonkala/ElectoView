@@ -51,8 +51,8 @@ public class User {
     private static final int MAX_FAILED_ATTEMPTS = 5;
 
     @Builder
-    public User(String name, String email, String passwordHash, Role role, AccountStatus status, int failedLoginAttempts, LocalDateTime createdAt) {
-        this.id = java.util.UUID.randomUUID().toString();
+    public User(String name, String email, String passwordHash, Role role, AccountStatus status, int failedLoginAttempts, LocalDateTime createdAt, LocalDateTime lastLoginAt, String id, String password) {
+        this.id = id != null ? id : java.util.UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
         this.passwordHash = passwordHash;
@@ -60,6 +60,7 @@ public class User {
         this.status = status;
         this.failedLoginAttempts = failedLoginAttempts;
         this.createdAt = createdAt;
+        this.lastLoginAt = lastLoginAt;
     }
 
      public boolean isActive() {
@@ -94,10 +95,11 @@ public class User {
     }
 
     public void resetPassword(String newPasswordHash) {
-        this.passwordHash = newPasswordHash;
-        this.failedLoginAttempts = 0;
-        this.status = AccountStatus.ACTIVE;
-    }
+    if (newPasswordHash == null || newPasswordHash.isBlank())
+        throw new IllegalArgumentException("Password hash cannot be empty.");
+    this.passwordHash = newPasswordHash;
+    this.failedLoginAttempts = 0;
+}
 
     public void recordLogin() {
         this.lastLoginAt = LocalDateTime.now();

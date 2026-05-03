@@ -80,10 +80,10 @@ public class UserService {
     }
 
     public User resetPassword(String id, String newPasswordHash) {
-        User user = findById(id);
-        user.resetPassword(newPasswordHash);
-        return userRepository.save(user);
-    }
+    User user = findById(id);
+    user.resetPassword(newPasswordHash);
+    return userRepository.save(user);
+}
 
     public User updateRole(String id, Role newRole) {
         User user = findById(id);
