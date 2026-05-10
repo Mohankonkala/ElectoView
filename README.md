@@ -41,6 +41,8 @@ Once completed, ElectroView will provide:
 
 [Class Diagram](./Class_Diagram.md) Full Mermaid.js class diagram with enumerations, 8 domain classes, 3 service boundary classes, multiplicity, composition, and design decision explanations.
 
+[Repository Class Diagram](./Repository_Class_Diagram.md) This diagram shows the persistence repository layer. It demonstrates the Repository pattern with multiple swappable storage backends, accessed through a Factory abstraction mechanism.
+
 ---
 
 ## ElectroView Project
@@ -77,7 +79,6 @@ Lombok removes repetitive getters, setters, constructors, and toString methods v
 | Singleton | `DatabaseConnectionManager` | One thread-safe connection pool is shared globally — multiple instances would exhaust database connections |
 
 ---
-
 ### API Endpoints
 
 #### Users `/api/users`

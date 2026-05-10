@@ -85,3 +85,4 @@ za\ac\cput\patterns\builder\ReportRequest.class
 za\ac\cput\patterns\abstractfactory\BudgetAlertPanel.class
 za\ac\cput\domain\Anomaly$AnomalyBuilder.class
 za\ac\cput\patterns\abstractfactory\ConsumptionChart.class
+za\ac\cput\repositories\filesystem\FileSystemUserRepository.class

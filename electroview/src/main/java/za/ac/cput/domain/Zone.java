@@ -55,13 +55,13 @@ public class Zone{
     private List<Meter> meters = new ArrayList<>();
 
     @Builder
-    public Zone(String name, String description, String location, double capacityKwh, ThresholdType thresholdType, double thresholdValue, ZoneStatus status, LocalDateTime createdAt, String zoneId) {
+    public Zone(String name, String description, String location, double capacityKwh) {
+        this.zoneId = java.util.UUID.randomUUID().toString();   
         this.name = name;
         this.description = description;
         this.location = location;
         this.capacityKwh = capacityKwh;
-        this.thresholdType = thresholdType;
-        this.thresholdValue = thresholdValue;
+        this.thresholdType = ThresholdType.RELATIVE;
         this.thresholdValue = 120.0;
         this.status = ZoneStatus.CONFIGURED;
         this.createdAt = LocalDateTime.now();

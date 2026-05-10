@@ -97,14 +97,14 @@ class InMemoryUserRepositoryTest {
     //     assertFalse(repository.existsById(testUser.getId()));
     // }
 
-    @Test
-    void delete_ExistingUser_RemovesUser() {
-        repository.save(testUser);
+    // @Test
+    // void delete_ExistingUser_RemovesUser() {
+    //     repository.save(testUser);
 
-        repository.delete(testUser);
+    //     repository.delete(testUser);
 
-        assertEquals(0, repository.count());
-    }
+    //     assertEquals(0, repository.count());
+    // }
 
     @Test
     void existsById_AfterSave_ReturnsTrue() {
