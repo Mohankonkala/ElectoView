@@ -43,6 +43,8 @@ Once completed, ElectroView will provide:
 
 [Repository Class Diagram](./Repository_Class_Diagram.md) This diagram shows the persistence repository layer. It demonstrates the Repository pattern with multiple swappable storage backends, accessed through a Factory abstraction mechanism.
 
+[OpenAPI/Swagger file](./Swagger.md) Interactive API documentation is available via Swagger UI when the application is running: http://localhost:8080/swagger-ui.html
+
 ---
 
 ## ElectroView Project
