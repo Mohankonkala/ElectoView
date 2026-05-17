@@ -30,9 +30,9 @@ Three entities are fully documented as the foundation for group work:
 Every endpoint is annotated with its summary, description, and possible
 HTTP response codes including error responses (400, 404).
 
-![Swagger UI](./Screenshot (101).png)
-![Swagger UI](./Screenshot (102).png)
-![Swagger UI](./Screenshot (103).png)
+![Swagger UI](<Screenshot (101).png>)
+![Swagger UI](<Screenshot (102).png>)
+![Swagger UI](<>Screenshot (103).png>)
 
 
 ### Error Handling
