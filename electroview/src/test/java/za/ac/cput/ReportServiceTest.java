@@ -53,7 +53,7 @@ void requestReport_InlineRange_SetsReadyStatus() {
             null, null
     );
 
-    assertEquals(ReportStatus.RReady, result.getStatus());
+    assertEquals(ReportStatus.READY, result.getStatus());
     assertNotNull(result.getFilePath());
 }
 
