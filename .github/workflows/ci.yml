@@ -25,6 +25,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: electroview/pom.xml
 
       - name: Build with Maven
         run: mvn -B clean compile
@@ -37,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
-          path: target/surefire-reports/
+          path: electroview/target/surefire-reports/
           retention-days: 7
 
   # ────────────────────────────────────────────────────────────
@@ -59,6 +60,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: electroview/pom.xml
 
       - name: Build production JAR
         run: mvn -B clean package -DskipTests
@@ -67,5 +69,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: electroview-jar
-          path: target/electroview-*.jar
+          path: electroview/target/electroview-*.jar
           retention-days: 30
