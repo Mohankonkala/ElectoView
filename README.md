@@ -175,6 +175,63 @@ Lombok removes repetitive getters, setters, constructors, and toString methods v
 
 ---
 
+## CI/CD with GitHub Actions
+
+ElectroView uses GitHub Actions for continuous integration and continuous
+delivery. Every code change is automatically built, tested, and (when
+merged to `main`) packaged as a deployable JAR.
+
+### Running Tests Locally
+
+Before pushing, you can run the same tests the CI pipeline will run:
+
+```bash
+cd electroview
+mvn test
+```
+
+To build the production JAR locally:
+
+```bash
+mvn clean package
+```
+
+The JAR will be created at `target/electroview-1.0-SNAPSHOT.jar`.
+
+### How the CI/CD Pipeline Works
+
+The workflow lives in `.github/workflows/ci.yml` and runs two jobs:
+
+| Job | Triggered by | What it does |
+|---|---|---|
+| **Build and Test** | Every push and every PR to `main` | Sets up Java 17, compiles, runs all unit and integration tests, uploads test reports |
+| **Build Release Artifact** | Only pushes to `main` (after tests pass) | Builds the production JAR and uploads it as a downloadable artifact |
+
+The release job has `needs: test` so it never runs if the test job fails.
+The release job has `if: github.ref == 'refs/heads/main'` so it never runs
+on feature branches — only when code lands on `main`.
+
+### Branch Protection
+
+The `main` branch is protected. See [PROTECTION.md](./PROTECTION.md) for the
+full set of rules and the reasoning behind each one.
+
+In short:
+- No direct pushes to `main` — everything goes through a PR
+- Tests must pass before a PR can be merged
+- At least one reviewer must approve before a PR can be merged
+
+### Test Workflow Status
+
+![CI/CD Workflow](./ci-pipeline.png)
+
+### Generated JAR Artifact
+
+After a successful merge to `main`, the JAR appears in the run summary
+under the **Artifacts** section, ready to download or deploy.
+
+![JAR Artifact](./jar-artifact.png)
+
 ## Project Board
 
 ElectroView uses a GitHub Project (Team Planning template) as its Agile Kanban board.
