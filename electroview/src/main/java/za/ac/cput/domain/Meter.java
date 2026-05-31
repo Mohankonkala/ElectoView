@@ -17,20 +17,23 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 public class Meter {
 
     @Id
     @UuidGenerator
     @Column(updatable = false, nullable = false)
+    @ToString.Include
     private String meterId;
 
     @NotBlank
     @Column(nullable = false, unique = true)
+    @ToString.Include
     private String serialNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @ToString.Include
     private MeterStatus status = MeterStatus.REGISTERED;
 
     @Column(updatable = false)
@@ -42,8 +45,10 @@ public class Meter {
     private int consecutiveRejectedReadings = 0;
 
     @Column(nullable = false)
+    @ToString.Include
     private String zoneId;
 
+    @ToString.Include
     private String consumerId;
 
     @OneToMany(mappedBy = "meterId", cascade = CascadeType.ALL, orphanRemoval = true)
