@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(onlyExplicitlyIncluded = true)
+@ToString(of = {"meterId", "serialNumber", "status", "zoneId", "consumerId"})
 public class Meter {
 
     @Id
